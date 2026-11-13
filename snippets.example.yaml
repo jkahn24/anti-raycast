@@ -1,0 +1,10 @@
+# Snippets: type "snip" (or "snip <filter>"), Enter copies.
+# Copy this file to snippets.yaml (git-ignored) and add your own.
+# Hot-reloaded on every summon, like actions.yaml.
+snippets:
+  - name: Email signature
+    keywords: [sig, signature]
+    text: "Best,\nYour Name"
+  - name: Shrug
+    keywords: [shrug]
+    text: "¯\_(ツ)_/¯"

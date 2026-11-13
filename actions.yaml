@@ -1,0 +1,45 @@
+# Anti-Raycast custom actions, hot-reloaded on every summon.
+#
+# Fields: name (shown), keywords (extra fuzzy hooks), icon (emoji), type,
+#         command, confirm (true = one-keystroke confirm row before running),
+#         subtitle (optional description).
+# Types: shell       run hidden (fire-and-forget commands)
+#        powershell  run in a VISIBLE console (for readable output)
+#        python      run a .py with the system python, hidden
+#        url         open in the default browser
+#        obsidian    open an obsidian:// URI (or any registered protocol)
+#        builtin     built-ins (killproc)
+
+# Keyword web searches: "<keyword> <terms>" opens the URL with {q} filled in.
+searches:
+  g: https://www.google.com/search?q={q}
+  yt: https://www.youtube.com/results?search_query={q}
+  maps: https://www.google.com/maps/search/{q}
+  gh: https://github.com/search?q={q}
+  wiki: https://en.wikipedia.org/w/index.php?search={q}
+
+actions:
+  - name: Open Downloads
+    keywords: [downloads, dl]
+    icon: "📂"
+    type: shell
+    command: explorer.exe shell:Downloads
+
+  - name: "Power: Balanced"
+    keywords: [power, balanced]
+    icon: "🔋"
+    subtitle: powercfg, the everyday scheme
+    type: shell
+    command: powercfg /setactive 381b4222-f694-41f0-9685-ff5bb260df2e
+
+  - name: "Power: High performance"
+    keywords: [power, performance, turbo]
+    icon: "🔥"
+    subtitle: powercfg, max clocks
+    type: shell
+    command: powercfg /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
+
+  - name: Kill process…
+    keywords: [kill, end, terminate, task]
+    type: builtin
+    command: killproc

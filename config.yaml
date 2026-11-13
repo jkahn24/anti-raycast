@@ -1,0 +1,34 @@
+# Anti-Raycast configuration
+# The stub reads hotkey + watchdog at startup; the palette reads the rest
+# on every summon (mtime-checked), so edits apply without restarts.
+
+# "win" = the bare Windows key (low-level hook: tapping Win alone summons the
+# palette and the Start Menu is suppressed; Win+E/D/L and other combos are
+# untouched, and Start is still reachable via Ctrl+Esc). Any other spec
+# (e.g. "ctrl+alt+space") uses a normal RegisterHotKey binding instead.
+hotkey: win
+
+# The watchdog contract, enforced by the stub, outside the worker it polices.
+# CPU is % of TOTAL machine CPU (all cores, Task Manager convention).
+watchdog:
+  cpu_pct_max: 20      # kill the worker if it exceeds this % of total CPU...
+  cpu_sustain_s: 60    # ...sustained for this many seconds
+  rss_mb_max: 300      # kill immediately if RSS exceeds this (MB)
+
+# Obsidian vaults for note search (optional). The name must match the vault
+# name Obsidian uses, so obsidian:// links open the right one.
+vaults: {}
+#  MyVault: ~/Documents/MyVault
+
+# Where "note <text>" appends quick captures (default ~/Documents/Inbox.md).
+# capture_file: ~/Documents/Inbox.md
+
+# App aliases: extra names that resolve to an installed app (fragment match).
+aliases:
+  browser: chrome
+  editor: code
+
+# Folders for the file-search fallback when Windows Search is unavailable.
+scoped_dirs:
+  - ~/Downloads
+  - ~/Documents
